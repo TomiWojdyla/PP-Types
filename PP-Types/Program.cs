@@ -14,8 +14,27 @@ string[] names = {
 // After last element should be ".".
 void PrintGroups(string[] t, int perLine)
 {
-
     // Write required code.
+
+    int i = 0;  // Iterations counter
+    while (i < t.Length)
+    {
+        if (i != t.Length - 1)
+        {
+            Console.Write(t[i] + ", "); // Not last element in array
+        }
+        else
+        {
+            Console.Write(t[i] + "."); // Last element in array
+        }
+        if ((i + 1) % perLine == 0) // (Item number + 1) is a multiplication of *perLine* 
+        {
+            Console.WriteLine(); // Shifting to next line
+        }
+        i++;
+    }
+
+    Console.WriteLine(); // Empty line spacer
 
 }
 
