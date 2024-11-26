@@ -1,6 +1,8 @@
 ﻿// Write required code.
 
 // Data - do not change it in code!
+using System.ComponentModel.Design;
+
 string[] names = {
     "Mickey Mouse", "Minnie Mouse", "Donald Duck", "Goofy", "Pluto", "Daisy Duck", "Simba", "Nala", 
     "Timon", "Pumbaa", "Mufasa", "Ariel", "Flounder", "Sebastian", "Ursula", "Belle", "Beast", "Gaston", 
@@ -33,9 +35,7 @@ void PrintGroups(string[] t, int perLine)
         }
         i++;
     }
-
     Console.WriteLine(); // Empty line spacer
-
 }
 
 
@@ -48,7 +48,31 @@ void PrintColumns(string[] t, int perLine, int width)
 {
 
     // Write required code.
-
+    int i = 0;  // Iterations counter
+    while (i < t.Length)
+    {
+        if (t[i].Length < width)
+        {
+            Console.Write(t[i]);
+            int column_filling = t[i].Length;
+            while (column_filling < width)
+            {
+                Console.Write(" ");
+                column_filling++;
+            }
+            Console.Write("| ");
+        }
+        else
+        {
+            Console.Write(t[i][..(width)] + "| ");
+        }
+        if ((i + 1) % perLine == 0) // (Item number + 1) is a multiplication of *perLine* 
+        {
+            Console.WriteLine(); // Shifting to next line
+        }
+        i++;
+    }
+    Console.WriteLine(); // Empty line spacer
 }
 
 
